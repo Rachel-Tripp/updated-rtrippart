@@ -530,8 +530,7 @@ a:hover, a:active {
 	left: -999em;
 	top: 0;
 }
-/-- test comment--/
-
+/-- Andrew is cool --/
 .main-navigation ul ul li:hover > ul,
 .main-navigation ul ul li.focus > ul {
 	left: 100%;
