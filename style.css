@@ -526,8 +526,6 @@ a:hover, a:active {
 	z-index: 99999;
 }
 
-/-- third test comment --/
-
 .main-navigation ul ul ul {
 	left: -999em;
 	top: 0;
