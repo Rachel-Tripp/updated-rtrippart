@@ -1,0 +1,1727 @@
+/*!
+Theme Name: Basic-Wordpress-Theme
+Theme URI: http://underscores.me/
+Author: Rachel Tripp
+Author URI: http://automattic.com/
+Description: Theme for https://racheetah-tripp.org
+Version: 1.1.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: _s
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme is based on another theme called _s, which, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+_s is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
+Rachel Tripp edited some of thoes styles, so hopefully they all work.
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+# Rachel Tripp's Styles
+	## Custom Properties - go here to change colors quickly - it's around ~line 850
+	## Content Styles
+	## Nav Menu Styles
+	## Body Styles
+	## Footer Styles
+	## Media Queries
+
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+[hidden],
+template {
+	display: none;
+}
+
+a:active,
+a:hover {
+	outline: 0;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+img {
+	border: 0;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+figure {
+	margin: 1em 40px;
+}
+
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+pre {
+	overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+}
+
+button {
+	overflow: visible;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input {
+	line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+	border: 0;
+	padding: 0;
+}
+
+textarea {
+	overflow: auto;
+}
+
+optgroup {
+	font-weight: bold;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code, kbd, tt, var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+}
+
+abbr, acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark, ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+ul, ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	height: auto;
+	/* Make sure images are scaled correctly. */
+	max-width: 100%;
+	/* Adhere to container width. */
+}
+
+figure {
+	margin: 1em 0;
+	/* Extra wide images within figure tags don't overflow the content area. */
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid;
+	border-color: #ccc #ccc #bbb;
+	border-radius: 3px;
+	background: #e6e6e6;
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1;
+	padding: .6em 1em .4em;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	border-color: #ccc #bbb #aaa;
+}
+
+button:active, button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+	border-color: #aaa #bbb #bbb;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 3px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+	color: #111;
+}
+
+select {
+	border: 1px solid #ccc;
+}
+
+textarea {
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+:root {
+	--link-color: #f2eabb;
+	--visited-link-color: #f2eabb;
+	--hover-link-color: #f2eabb;
+}
+
+a {
+	color: var(--link-color);
+}
+
+a:visited {
+	color: var(--visited-link-color);
+}
+
+a:hover, a:focus, a:active {
+	color: var(--hover-link-color);
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover, a:active {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+.main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.main-navigation ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 99999;
+}
+/--hi--/
+
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	left: 100%;
+}
+
+.main-navigation ul ul a {
+	width: 200px;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+}
+
+/* .main-navigation li {
+	float: left;
+	position: relative;
+} */
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+	display: grid;
+	}
+}
+.site-main .comment-navigation, .site-main
+.posts-navigation, .site-main
+.post-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: left;
+	width: 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	word-wrap: normal !important;
+	/* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+	/* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+/* .clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+} */
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+	/* Make sure select elements fit in widgets. */
+}
+
+.widget select {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+	/* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+	display: inline-block;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Rachel Tripp's Styles
+--------------------------------------------------------------*/
+/*============= ## Custom Properties =============*/
+:root {
+	/*============= fonts =============*/
+	--heading-font: source-serif-pro, serif;
+	--body-font: gill-sans-nova, sans-serif;
+	/*============= text size =============*/
+	font-size: calc(1.25em+0.5*((100vw-37.5em)/60));
+	--body-text-size: 1.2rem;
+	--h1-size: 3rem;
+	--h2-size: 2rem;
+	--h3-size: 1.3rem;
+		/*============= colors =============*/
+	--background: #f2eabb;
+	--light-opaque-background: rgb(242,234,187, 0.4);
+	--home-p-background: rgb(12, 25, 43, 0.94);
+	--gallery-p-background: rgb(12, 25, 43, 0.75);
+	--light-color-1: #9ba4b2;
+	--light-color-2: #ffc294;
+	--menu-background: #5b1302;
+	--home-menu-background: #0c192b;
+	--menu-main-background: #0c192b;
+	--menu-color: #f2eabb;
+	--hover-menu-color: #5b1302;
+	--heading-color: #0c192b;
+	--body-color: #0c192b;
+	--link-initial: #f2eabb;
+	--link-hover: #f2eabb;
+	--link-active: #f2eabb;
+	--h2-hover: #5b1302;
+	--footer-background: #0c192b;
+	--footer-color: #9ba4b2;
+	--footer-link-color: #f2eabb;
+	--footer-link-hover-color: #5b1302;
+	--footer-link-active-color: #9ba4b2;
+}
+/*============= ## Content Styles =============*/
+html, body {
+    margin: 0;
+    padding: 0;
+}
+*,
+    ::before,
+    ::after {
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+body {
+	font-family: var(--body-font);
+	color: var(--body-color);
+	background: var(--background);
+	font-size: var(--body-text-size);
+	padding:0;
+	margin:0;
+	font-family: gill-sans-nova, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	
+}
+ul {
+	list-style-type: none;
+}
+a {
+	color: var(--link-initial);
+	text-decoration: none;
+}
+a:hover, a:focus {
+	color: var(--link-hover);
+	transition-duration: 0.5s;
+}
+a:active {
+	color: var(--link-active);
+}
+h1 {
+	font-family: var(--heading-font);
+	font-size: var(--h1-size);
+	padding: var(--basic-padding);
+	margin: 0;
+	color: var(--heading-color);
+	font-family: gill-sans-nova, sans-serif;
+	font-weight: 900;
+	font-style: normal;
+}
+h2 {
+	font-family: var(--heading-font);
+	font-size: var(--h2-size);
+	padding: 0;
+	margin: 0;
+	color: var(--heading-color);
+	font-family: source-serif-pro, serif;
+	font-weight: 700;
+	font-style: normal;
+}
+h3 {
+	font-size: var(--h3-size);
+	font-family: source-serif-pro, serif;
+}
+h4, h5, h6 {
+	font-family: source-serif-pro, serif;
+}
+/*============= ## Nav Menu Styles =============*/
+.menu-logo-here {
+	background:none;
+	position: absolute;
+	top: 0.54em; left: 20%;
+	font-family: source-serif-pro, serif;
+	font-weight: 900;
+	font-style: normal;
+	background: none;
+	letter-spacing: 0.15rem;
+	word-spacing: 0.5rem;
+}
+.menu-logo-here a {
+	background:none;
+	color: var(--light-color-1);
+}
+.menu-logo-here a:hover {
+	background:none;
+	color: var(--light-color-1);
+}
+.menu-logo-here a:active {
+	background:none;
+	color: var(--hover-menu-color);
+}
+.menu-toggle {
+	margin: 0 0 0 auto;
+	padding:  0 0 0 0;
+	border: none;
+	background: var(--background);
+}
+.menu-btn {
+	background: var(--background);
+	width: 6em;
+	height: 4em;
+	padding: 0.3em;
+}
+.menu-btn path {
+	fill: var(--menu-main-background);
+}
+.main-navigation {
+	background: var(--menu-main-background);
+}
+.nav-menu {
+	background: var(--footer-background);
+	padding: 0.5em 0em;
+	margin: 0;
+}
+.nav-menu a {
+	background: var(--footer-background);
+	color: var(--menu-color);
+	padding: 0.5em;
+	margin: 0.2em auto;
+	box-shadow: none;
+	text-align: center;
+	font-size: 1.4rem;
+	font-family: gill-sans-nova, sans-serif;
+	font-weight: 600;
+	font-style: normal;
+}
+	.nav-menu a:hover, a:focus {
+	background: var(--background);
+	color: var(--hover-menu-color);
+		transition: 0.5s;
+}
+	.nav-menu a:active {
+		box-shadow: none;
+		color: var(--menu-main-background);
+		transition: 0.5s;
+	}
+/*============= ## Body Styles =============*/
+/* ----- HOME ----- */
+/* .entry-title {
+	display: none;
+} */
+.home .entry-title {
+	margin: 0;
+	padding: 0;
+	transform: translate(-100000px, -100000px);
+}
+.home .entry-header {
+	max-height: 0em;
+}
+h1 {
+	padding: 0.5em;
+	text-align: center;
+}
+.page-title {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+.page-content p, .entry-content{
+	padding: 0;
+	margin: 0;
+}
+.home-p, .search-results .entry-summary {
+	padding: 0.5em 1em 1em 1em;
+	margin: 0;
+	text-indent: 2rem;
+}
+.search-results .page-title {
+	font-size: 2.2rem;
+	padding: 0.5em 0.1em;
+	margin: 0 0 0.25em 0;
+}
+.search-results .page-title span {
+	font-size: 3rem;
+	font-family: gill-sans-nova, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+.search-results .page-title span::before {
+  content: "\A";
+	white-space: pre;
+}
+.search-results .entry-title {
+	text-align: center;
+}
+.search-results .entry-title a {
+	color: var(--hover-menu-color);
+}
+.search-results .entry-title a:hover, .search-results .entry-title a:focus {
+	color: var(--body-color);
+	transition: 1s;
+}
+.search-results .entry-title a:active {
+	color: var(--hover-menu-color);
+}
+/* ----- ABOUT ----- */
+.selfie-description {
+	margin: 0 0 1em 0;
+}
+.selfie-wrapper {
+	align-items: center;
+	display: grid;
+	padding: 0;
+	width: 90%;
+	margin: 0 auto;
+	}
+.selfie {
+	padding: 0;
+}
+.selfie-description {
+		padding: 2em 0.5em 1em 0.5em;
+		text-indent: 2rem;
+		grid-row: 2;
+	}
+/* ----- GALLERY ----- */
+.gallery-h1-background h1{
+	display: none;
+}
+.gallery-h2 {
+	padding: 0 1em;
+	font-size: 1.5rem;
+	text-align: center;
+}
+.gallery-p, .gallery-p-sw {
+	padding: 0 1em;
+	text-indent: 2rem;
+	margin: 0 0 1.5em 0;
+}
+.gallery-links-h2 {
+	text-align: center;
+	padding-bottom: 0.25em;
+	font-size: 1.75rem;
+}
+.gallery-wrapper img{
+	padding: 0 0.5em;
+}
+.trigger-div {
+	margin: 0 auto;
+	text-align: center;
+}
+.trigger {
+	font-family: gill-sans-nova;
+	font-size: 1rem;
+	margin: 0 auto 1em auto;
+	text-align: center;
+	padding: 0.5em 4em;
+}
+.caption {
+	padding: 0;
+	margin: 0;
+	height: 0px;
+	transform: translate(-100000px, -100000px);
+}
+.caption.open{
+	padding: 0em 2em 1em 2em;
+	transform: translate(0, 0);
+	height: auto;
+}
+.caption-body {
+	font-weight: normal;
+	font-size: 0.8rem;
+	font-family: gill-sans-nova, sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+.caption h3 {
+	font-size: 0.9rem;
+	margin: 0.3em 0;
+}
+.gallery-wrapper .student-work-img, .gallery-wrapper .hs-pieces-img {
+	padding: 0 2em;
+	margin: 0 0 1.5em 0;
+}
+.gallery-wrapper .student-work-img:hover, .gallery-wrapper .hs-pieces-img:hover, .gallery-wrapper .student-work-img:focus, .gallery-wrapper .hs-pieces-img:focus {
+	filter: blur(3px) opacity(90%);
+	transition: 0.5s;
+}
+.gallery-links-h2:hover, .gallery-links-h2:focus {
+	color: var(--h2-hover);
+	transition: 0.5s;
+}
+.gallery-links:active {
+	filter: sepia(100%);
+}
+/* ----- CONTACT ----- */
+.contact-p {
+	margin: 0 0 1em 0;
+	padding: 0 1em;
+	text-indent: 2rem;
+}
+.contact-form {
+	padding: 1em 1em 1em 1em;
+	font-family: source-serif-pro, serif;
+	font-weight: 700;
+	font-style: normal;
+}
+.textarea, .name, .email {
+	font-weight: 400;
+	font-family: gill-sans-nova;
+}
+.grunion-field-label, textarea {
+	font-family: source-serif-pro;
+}
+.checkbox-multiple {
+	padding: 0 1em;
+}
+.checkbox {
+	padding: 1em 0;
+}
+.contact-submit {
+	text-align: center;
+	margin: 1em 0 0 0;
+}
+/*============= ## Footer Styles =============*/
+.site-info {
+	display: none;
+}
+footer {
+	background: var(--footer-background);
+	color: var(--footer-color);
+}
+footer a {
+	color: var(--footer-link-color);
+}
+footer a:hover {
+	color: var(--footer-link-hover-color);
+}
+footer a:active {
+	color: var(--footer-link-active-color);
+}
+.widget_search {
+	grid-column-start:1;
+	grid-column-end:3;
+	margin: 0;
+}
+.site-footer {
+	padding: 0.5em;
+	margin: 0;
+	display: grid;
+	grid-template-columns: 1fr;
+}
+.secondary {
+	grid-row: 1;
+	text-align: center;
+	margin: 0.5em 0;
+	padding: 0;
+}
+.secondary h3 {
+	font-family: gill-sans-nova, serif;
+	font-weight: 400;
+	text-align: center;
+	font-size: 1.5rem;
+}
+.widget_nav_menu, .widget_nav_menu .menu, .widget_custom_html{
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+.widget_nav_menu {
+	padding: 0 0 0 1.5em;
+}
+.widget-title {
+	margin: 0.5em 0 0.25em;
+	text-align: center;
+}
+#custom_html-2 {
+	padding: 0 1.5em 0 0;
+}
+.sd-sharing {
+		text-align: center;
+		margin: 0 0 2em 0;
+}
+.follow-section a, aside a{
+	padding: 0;
+}
+#menu-footer-links, .follow-section {
+	margin: 0 auto;
+	padding: 0;
+}
+#menu-footer-links {
+	margin: 0 auto;
+	width: 3.25em;
+}
+.follow-section {
+	margin: 0 auto;
+	width: 3.8em;
+}
+#footer-sidebar1 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+#custom_html-3 {
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+#custom_html-3 h4 {
+	font-family: gill-sans-nova, serif;
+	font-size: 1.1rem;
+	font-weight: 400;
+	text-align: center;
+	margin: 0.75em 0 0 0;
+}
+.site-info {
+	grid-row: 2;
+	padding: 0.7em 0.2em 1em 0.2em;
+	margin: 0;
+	text-align: center;
+	font-size: 0.9rem;
+}
+/*============= ## Media Queries =============*/
+/* ----- iPad ----- */
+@media screen and (min-width:37.5em) {
+    :root {
+        font-size: 1rem;
+    }
+/* ----- Menu ----- */
+	.menu-logo-here, .home .menu-logo-here {
+		top: 5em;
+		left: 72%;
+		font-family: source-serif-pro, serif;
+		font-weight: 900;
+		font-style: normal;
+		letter-spacing: .1rem;
+		word-spacing: 0.6rem;
+		color: var(--menu-main-background);
+	}
+	.menu-logo-here a{
+		color: var(--menu-main-background);
+	}
+	.menu-logo-here a:hover {
+		color: var(--menu-main-background);
+		transition: 0.5s;
+	}
+	.menu-logo-here a:active {
+	background:none;
+	color: var(--hover-menu-color);
+		transition: 0.5s;
+}
+	.nav-menu {
+		background: var(--menu-background);
+		padding: 0;
+		margin: 1em;
+	}
+	.nav-menu a {
+		padding: 1.4em 0;
+		margin: 0 auto;
+		font-size: 1.2rem;
+	}
+	.main-navigation ul {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+	#primary-menu {
+		text-align: center;
+	}
+	.menu-item-27 {
+		grid-column: 1;
+	}
+	.menu-item-23 {
+		grid-column: 2;
+	}
+	.menu-item-24 {
+		grid-column: 3;
+	}
+	.menu-item-82 {
+		grid-column: 4;
+	}
+	h1 {
+	padding: 1em 0.5em 0.5em 0.5em;
+}
+/* ----- HOME (iPad) ----- */
+	.home-p {
+		font-size: 1rem;
+		padding: 1em 4em 1em 4em;
+	}
+	.search-results .entry-summary {
+		padding: 0.5em 4em 1em 4em;
+	}
+	.search-results .page-title {
+		font-size: 2.2rem;
+		padding: 0em 0.1em 0.5em 0.1em;
+		margin: 0 0 1em 0;
+	}
+/* ----- ABOUT (iPad) ----- */
+	.selfie-wrapper {
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+		align-items: center;
+		font-size: 1rem;
+		padding: 1em 1em 2em 1em;
+	}
+	.selfie-description {
+		padding: 0 2em 0 1em;
+		text-indent: 2rem;
+		margin: 0;
+		grid-row: 1;
+	}
+	.selfie {
+		padding: 0 1em 0 0;
+	}
+/* ----- GALLERY  (iPad)---- */
+	.gallery-h2 {
+		text-align: left;
+		font-size: 1.75rem;
+		padding: 0 3.5rem
+	}
+	.gallery-p {
+		padding: 0 4em;
+		margin: 0.5em 0;
+		font-size: 1rem;
+	}
+	.gallery-p-sw {
+		padding: 0.25em 3em 0 3em;
+	}
+	.gallery-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		margin: 0 0 3em 0;
+		padding: 1em 3em 0 3em;
+	}
+	.wp-image-210 {
+		margin: 0;
+	}
+	 .Mario-mural-section .caption.open {
+		width: 430px;
+		 margin: 0 auto;
+	}
+	.caption-body {
+		font-size: 1rem;
+	}
+	.caption h3 {
+		font-size: 1rem;
+		margin: 1em 0;
+		margin: 0.5em 0em;
+	}
+	.student-work-link {
+		padding: 0 1em 0 0;
+	}
+	.hs-pieces-link {
+		padding: 0 0 0 1em;
+	}
+	.gallery-wrapper .student-work-img, .gallery-wrapper .hs-pieces-img {
+		padding: 0;
+		margin: 0;
+	}
+	.gallery-wrapper .hs-pieces-img {
+		margin: 0.3em 0 0 0;
+	}
+	.Mario-mural-section {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+/* --- CONTACT (iPad)--- */
+	.contact-p {
+		font-size: 1rem;
+		padding: 0 3em;
+		margin: 0 0 2em 0;
+	}
+	.contact-form {
+		padding: 0 2em 1em 2em;
+	}
+/* --- Footer (iPad)--- */
+	.menu-footer-links-container{
+		display: grid;
+	}
+	#footer-sidebar1 {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	.secondary {
+		margin: 0;
+	}
+	.widget_search {
+		grid-column-start: 2;
+		margin: 0;
+		padding: 2em 0;
+	}
+	.widget_nav_menu {
+		grid-row-start: 1;
+	}
+	#custom_html-2 {
+		grid-row-start: 1;
+		grid-column-start: 3;
+	}
+	#custom_html-3 {
+		grid-column-end: 4;
+	}
+}
+/* ----- Computer ----- */
+@media screen and (min-width:56em) {
+    :root {
+      font-size:1.3rem;
+    }
+	.entry-content{
+		padding: 0;
+		margin: 0;
+	}
+	.home .menu-logo-here, .menu-logo-here {
+		top: 0.9em;
+		left: 4%;
+		font-size: 1.1rem;
+		letter-spacing: 0.2rem;
+		color: var(--light-color-1);
+	}
+	.menu-logo-here {
+		color: var(--light-color-2);
+	}
+	.home .menu-logo-here a, .menu-logo-here a {
+		color: var(--light-color-1);
+	}
+	.menu-logo-here a {
+		color: var(--light-color-2);
+	}
+	.menu-logo-here a:hover {
+		color: var(--light-color-2);
+	}
+	.home .menu-logo-here a:hover {
+		color: var(--light-color-1);
+	}
+	.menu-logo-here a:active {
+	background:none;
+	color: var(--menu-main-background);
+	}
+	.home .menu-logo-here a:active {
+	background:none;
+	color: var(--hover-menu-color);
+		transition: 0.5s;
+}
+	.main-navigation ul {
+		padding-left: 0em;
+		margin: 0 0 0 auto;
+	}
+	.nav-menu {
+		background: var(--menu-background);
+		padding: 0 auto;
+		margin: 0;
+		width: 75vw;
+	}
+	.menu-main-nav-container {
+		background: var(--menu-background);
+		padding: 0;
+	}
+	.nav-menu a {
+		padding: 1em 0;
+		width: 100%;
+		font-size: 1rem;
+		background: var(--menu-background);
+	}
+	h1 {
+	padding: 0.5em;
+}
+/* -- HOME (computer) -- */
+	.hentry {
+		margin: 0;
+	}
+	.home-p-background {
+		background: var(--home-p-background);
+	}
+	.home-p {
+		max-width: 1200px;
+		margin: 0 auto 0 auto;
+		padding: 2em 4em 2em 4em;
+		color: var(--light-color-1);
+		font-size: 1.2rem;
+	}
+	.home-page-image {
+		display: none;
+	}
+	.home-wrapper {
+		padding: 22em 0 30em 0;
+		background-image: url("https://rtrippart.com/wp-content/uploads/2020/08/Hurricane-Painting-compressed-scaled-e1597387341393.jpg");
+  	height: 900px;
+  	background-attachment: fixed;
+  	background-repeat: no-repeat;
+	  background-size: cover;
+	  padding-top: 60vh;
+	}
+	.home .nav-menu {
+		background: var(--home-menu-background);
+	}
+	.home .menu-main-nav-container {
+		background: var(--home-menu-background);
+	}
+	.home .nav-menu a {
+		background: var(--home-menu-background);
+	}
+	.home .nav-menu a:hover {
+		background: var(--background);
+	}
+	.search-results .entry-summary {
+		padding: 0.5em 4em 1em 4em;
+	}
+	.search-results .page-title {
+		font-size: 2.2rem;
+		padding: 0.5em 0.1em 0.5em 0.1em;
+		margin: 0 0 1em 0;
+	}
+/* -- ABOUT (computer) -- */
+	.selfie-wrapper {
+		padding: 1em 2em 2em 2em;
+		width: 90%;
+		margin: 0 auto;
+		max-width: 1200px;
+	}
+	.selfie-description {
+		padding: 0 3em 0 0;
+		margin: 0 0 0 auto;
+	}
+/* -- GALLERY (computer) -- */
+	.page-id-13 .entry-header {
+		max-height: 1em;
+	}
+	.page-id-13 .entry-title {
+		margin: 0;
+		padding: 0;
+		transform: translate(-100000px, -100000px)
+	}
+	.gallery-h1-background h1{
+		display: block;
+		text-align: center;
+	}
+	.gallery-background-img {
+		margin: 0 0 2em 0;
+		padding: 0 0 65em 0;
+		background-image: url("https://rtrippart.com/wp-content/uploads/2020/08/Hurricane-Painting-01-compressed-scaled-e1597386661422.jpg");
+  height: 1200px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+	}
+	.gallery-p-background {
+		background: var(--gallery-p-background);
+	}
+	.gallery-p {
+		max-width: 1050px;
+		margin: 15em auto 1em auto;
+		padding: 2em;
+		color: var(--background);
+		margin-top: 30vh;
+		font-size: 1.2rem;
+	}
+	.gallery-p-sw {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	.gallery-h2 {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	.gallery-wrapper {
+		max-width: 1400px;
+		margin: .5em auto 0 auto;
+	}
+	.gallery-links-again {
+		background: var(--light-opaque-background);
+	}
+	.gallery-link-wrapper {
+		max-width: 1000px;
+		margin: 3em auto 0em auto;
+		padding: 1em 3em 1.5em 3em;
+	}
+	.student-work-link {
+		padding: 0 1em 0 0;
+	}
+	.hs-pieces-link {
+		padding: 0 0 0 1em;
+	}
+	.hurricane-section {
+		display: grid;
+	}
+	.image-click:active {
+		filter: blur(5px);
+	}
+	.caption.open {
+		width: 450px;
+		margin: 0 auto;
+	}
+	.hurricane-section img {
+		padding: 0 0.5em 0.3em 0.5em;
+	}
+	.Mario-mural-section .caption.open {
+		width: 800px;
+		margin: 0 auto;
+	}
+	.caption-body {
+		font-size: 0.9em;
+	}
+/* -- CONTACT (computer) -- */
+	.contact-p {
+		max-width: 1000px;
+		margin: 0 auto 3em auto;
+		padding: 0 4em;
+		
+	}
+	.contact-form {
+		padding: 0 4em 1em 4em;
+		margin: 0 auto;
+		display: grid;
+		max-width: 1200px;
+	}
+/* -- footer (computer) -- */
+	.site-footer {
+		padding: 0;
+	}
+	.secondary {
+		margin: 0 0 0.5em 0;
+		font-size: 1rem;
+	}
+	.secondary h3 {
+		font-size: 1rem;
+	}
+	.widget_nav_menu {
+		grid-column-start: 1;
+	}
+	.widget_nav_menu, #custom_html-2 {
+		grid-row-start: 1;
+		grid-row-end: 3;
+	}
+	#custom_html-3 {
+		grid-row-start: 2;
+		grid-row-end: 3;
+	}
+	#custom_html-3 .copyright{
+		font-size: 0.8rem;
+	}
+	#custom_html-3 h4{
+		margin: 0;
+	}
+}
+@media screen and (min-width:85em) {
+	.nav-menu a {
+		font-size: 1rem;
+	}
+	.home .menu-logo-here, .menu-logo-here {
+		left: 6%;
+	}
+	.search-results .entry-summary {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+}
